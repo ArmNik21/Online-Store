@@ -1,0 +1,272 @@
+<html lang="en">
+<head>
+  <title>LoginRegisterApi</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="/">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/auth/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/auth/register">Register</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="/auth/logOut">LogOut</a>
+      </li>    
+    </ul>
+  </div>  
+</nav>
+<br>
+<div class="container">
+
+    <h1 class=" pt-4" >Welcome <%= username %></h1>
+    <p>
+      <a href="/admin/createNorutyun"> <button class="btn btn-success float-right">Add New Norutyun</button></a>
+     <a href="/admin/createKonfet"> <button class="btn btn-success float-right">Add New Konfet</button></a>
+    <a href="/admin/createTort"> <button class="btn btn-success float-right">Add New Tort</button></a>
+    <a href="/admin/createbiskvit"> <button class="btn btn-success float-right">Add New Biskvit</button></a>
+    <a href="/admin/paxpaxakCreate"> <button class="btn btn-success float-right">Add New Paxpaxak</button></a>
+    <a href="/admin/createDraja"> <button class="btn btn-success float-right">Add New Draja</button></a>
+    <a href="/admin/createkofe"> <button class="btn btn-success float-right">Add New Kofe</button></a>
+    </p>
+    Norutyunner
+    <table class="w-100" border="1">
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Content</th>
+        <th>Image</th>
+        <th>Read</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      <% articles.forEach(article=>{ %>
+        <tr>
+          <td><%= article.title %></td>
+          <td><%= article.description %></td>
+          <td><%= article.content %></td>
+          <td><%= article.image %></td>
+          <td>
+           <a href="/admin/readArticle/<%= article._id %>"> <button>Read</button></a>
+          </td>
+          <td>
+            <a href="/admin/updateArticle/<%= article._id %>"> <button>Update</button></a>
+          </td>
+          <td>
+            <a href="/admin/deleteArticle/<%= article._id %>"> <button>Delete</button>
+          </td>
+        </tr>
+
+      <% }) %>
+    </table>
+    Torter
+    <table class="w-100" border="1">
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Content</th>
+        <th>Image</th>
+        <th>Read</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      <% torts.forEach(Tort=>{ %>
+        <tr>
+          <td><%= Tort.title %></td>
+          <td><%= Tort.description %></td>
+          <td><%= Tort.content %></td>
+          <td><%= Tort.image %></td>
+          <td>
+           <a href="/admin/readArticle/<%= Tort._id %>"> <button>Read</button></a>
+          </td>
+          <td>
+            <a href="/admin/tortUpdate/<%= Tort._id %>"> <button>Update</button></a>
+          </td>
+          <td>
+            <a href="/admin/deleteArticle/<%= Tort._id %>"> <button>Delete</button>
+          </td>
+        </tr>
+      
+
+      <% }) %>
+    </table>
+  </table>
+  Konfetner
+  <table class="w-100" border="1">
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Content</th>
+      <th>Image</th>
+      <th>Read</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+    <% konfets.forEach(Konfet=>{ %>
+      <tr>
+        <td><%= Konfet.title %></td>
+        <td><%= Konfet.description %></td>
+        <td><%= Konfet.content %></td>
+        <td><%= Konfet.image %></td>
+        <td>
+         <a href="/admin/readArticle/<%= Konfet._id %>"> <button>Read</button></a>
+        </td>
+        <td>
+          <a href="/admin/updateKonfet/<%= Konfet._id %>"> <button>Update</button></a>
+        </td>
+        <td>
+          <a href="/admin/deleteArticle/<%= Konfet._id %>"> <button>Delete</button>
+        </td>
+      </tr>
+    
+
+    <% }) %>
+  </table>
+  Biskvit
+  <table class="w-100" border="1">
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Content</th>
+      <th>Image</th>
+      <th>Read</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+    <% biskvits.forEach(Biskvit=>{ %>
+      <tr>
+        <td><%= Biskvit.title %></td>
+        <td><%= Biskvit.description %></td>
+        <td><%= Biskvit.content %></td>
+        <td><%= Biskvit.image %></td>
+        <td>
+         <a href="/admin/readArticle/<%= Biskvit._id %>"> <button>Read</button></a>
+        </td>
+        <td>
+          <a href="/admin/tortUpdate/<%= Biskvit._id %>"> <button>Update</button></a>
+        </td>
+        <td>
+          <a href="/admin/deleteArticle/<%= Biskvit._id %>"> <button>Delete</button>
+        </td>
+      </tr>
+    
+
+    <% }) %>
+  </table>
+Paxpaxak
+  <table class="w-100" border="1">
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Content</th>
+      <th>Image</th>
+      <th>Read</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+    <% paxpaxaks.forEach(Paxpaxak=>{ %>
+      <tr>
+        <td><%= Paxpaxak.title %></td>
+        <td><%= Paxpaxak.description %></td>
+        <td><%= Paxpaxak.content %></td>
+        <td><%= Paxpaxak.image %></td>
+        <td>
+         <a href="/admin/readArticle/<%= Paxpaxak._id %>"> <button>Read</button></a>
+        </td>
+        <td>
+          <a href="/admin/tortUpdate/<%= Paxpaxak._id %>"> <button>Update</button></a>
+        </td>
+        <td>
+          <a href="/admin/deleteArticle/<%= Paxpaxak._id %>"> <button>Delete</button>
+        </td>
+      </tr>
+    
+
+    <% }) %>
+  </table>
+  Draja
+  <table class="w-100" border="1">
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Content</th>
+      <th>Image</th>
+      <th>Read</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+    <% drajas.forEach(Daraj=>{ %>
+      <tr>
+        <td><%= Daraj.title %></td>
+        <td><%= Daraj.description %></td>
+        <td><%= Daraj.content %></td>
+        <td><%= Daraj.image %></td>
+        <td>
+         <a href="/admin/readArticle/<%= Daraj._id %>"> <button>Read</button></a>
+        </td>
+        <td>
+          <a href="/admin/tortUpdate/<%= Daraj._id %>"> <button>Update</button></a>
+        </td>
+        <td>
+          <a href="/admin/deleteArticle/<%= Daraj._id %>"> <button>Delete</button>
+        </td>
+      </tr>
+    
+
+    <% }) %>
+  </table>
+  Kofe
+  <table class="w-100" border="1">
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Content</th>
+      <th>Image</th>
+      <th>Read</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+    <% kofes.forEach(Kofe=>{ %>
+      <tr>
+        <td><%= Kofe.title %></td>
+        <td><%= Kofe.description %></td>
+        <td><%= Kofe.content %></td>
+        <td><%= Kofe.image %></td>
+        <td>
+         <a href="/admin/readArticle/<%= Kofe._id %>"> <button>Read</button></a>
+        </td>
+        <td>
+          <a href="/admin/tortUpdate/<%=Kofe._id %>"> <button>Update</button></a>
+        </td>
+        <td>
+          <a href="/admin/deleteArticle/<%= Kofe._id %>"> <button>Delete</button>
+        </td>
+      </tr>
+    
+
+    <% }) %>
+  </table>
+</div>
+
+
+
+
+</body>
+<footer class="bg-secondary text-white text-center p-2">
+  Arman Nikolyan 22.04.2021
+</footer>
+</html>
+   
